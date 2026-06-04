@@ -28,16 +28,4 @@
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
-
-    /* TEMP DEBUG: route console to a USB CDC-ACM for log capture. Revert after. */
-    chosen {
-        zephyr,console = &cdc_acm_log;
-        zephyr,shell-uart = &cdc_acm_log;
-    };
-};
-
-&zephyr_udc0 {
-    cdc_acm_log: cdc_acm_log {
-        compatible = "zephyr,cdc-acm-uart";
-    };
 };
