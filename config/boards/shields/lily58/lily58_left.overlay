@@ -20,6 +20,12 @@
 &left_encoder {
     status = "okay";
 };
+
+/* 1MHz SPI is marginal on battery (VCC sag) -> corrupted re-rendered lines
+ * (stripes). Status screen needs no speed; drop the clock for timing margin. */
+&nice_view {
+    spi-max-frequency = <250000>;
+};
 / {
     chosen {
       zmk,battery = &vbatt;
